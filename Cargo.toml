@@ -1,0 +1,17 @@
+[package]
+name = "solana-stream-parse"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0"
+tokio = { version = "1.0", features = ["full"] }
+solana-client = "3.0.3"
+solana-commitment-config = "3.0.0"
+solana-transaction-status = "3.0.3"
+solana-sdk = "3.0.0"
+serde_json = "1.0.145"
+serde = { version = "1.0.226", features = ["derive"] }
+rdkafka = "=0.23.1"
+rand = "0.9.2"
+futures = "0.3.31"
