@@ -39,18 +39,6 @@ cargo build --release
 | 批量大小 | 每批解析区块数 | 10 |
 | 过滤规则 | 指定 Token / 地址 | USDC mint |
 
-### 📈 快速开始
-```bash
-./solana-stream-parse --rpc-url https://api.mainnet-beta.solana.com \
-  --kafka-brokers localhost:9092 \
-  --topic solana_events \
-  --block-batch-size 10
-```
-
-日志示例：
-```text
-[INFO] Block 123456 parsed, found 5 SOL transfers, 2 USDC transfers
-```
 
 ### 🏗 架构
 ```
@@ -109,19 +97,6 @@ Binary available at `target/release/`.
 | Topic | Kafka topic | `solana_events` |
 | Batch size | Number of blocks per batch | 10 |
 | Filter rules | Specific token / address | USDC mint |
-
-### 📈 Quick Start
-```bash
-./solana-stream-parse --rpc-url https://api.mainnet-beta.solana.com \
-  --kafka-brokers localhost:9092 \
-  --topic solana_events \
-  --block-batch-size 10
-```
-
-Example logs:
-```text
-[INFO] Block 123456 parsed, found 5 SOL transfers, 2 USDC transfers
-```
 
 ### 🏗 Architecture
 ```
