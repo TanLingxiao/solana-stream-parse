@@ -140,7 +140,7 @@ async fn process_blocks_concurrent(
         let target_tokens_clone = target_tokens.clone();
         let kafka_producer_clone = kafka_producer.clone();
 
-        // 限制并发数量
+        // Limit the number of concurrent connections
         while tasks.len() >= CONCURRENT_BLOCKS {
             tasks.join_next().await;
         }
@@ -160,10 +160,10 @@ fn create_kafka_producer() -> FutureProducer {
     ClientConfig::new()
         .set("bootstrap.servers", KAFKA_SERVER)
         .set("message.timeout.ms", "5000")
-        .set("linger.ms", "1") // 减少延迟
-        //.set("batch.size", "16384") // 增加批处理
-        .set("compression.type", "lz4") // 启用压缩
-        .set("acks", "1") // 只等待leader确认,提高速度
+        .set("linger.ms", "1")
+        //.set("batch.size", "16384")
+        .set("compression.type", "lz4") // Enable compression
+        .set("acks", "1") // Just waiting for the leader's confirmation to speed things up.
         .create()
         .expect("Failed to create Kafka producer")
 }
